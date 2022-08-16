@@ -1,0 +1,391 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="remus,business,company,agency,multipurpose,modern,bootstrap4">
+
+    <meta name="author" content="Dreambuzz">
+
+    <title>My Portfolio</title>
+
+    <!-- Mobile Specific Meta-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.html' %}"/>
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="{% static 'plugins/animate-css/animates.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/themify/css/themify-icons.css' %}">
+    <!-- Magnify Popup -->
+    <link rel="stylesheet" href="{% static 'plugins/magnific-popup/dist/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/animated-text/animated-text.css' %}">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/slick-carousel/slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/slick-carousel/slick/slick-theme.css' %}">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-expand-lg navigation header-padding site-header" id="navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <!-- <h2>Rubi.</h2> -->
+            <h1><span style="color:red;font-family:san-serif">K</span>amronbek</h1>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarmain"
+                aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarmain">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item">
+                    <a class="nav-link smoth-scroll active" href="#slider">Home <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item"><a class="nav-link smoth-scroll" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link smoth-scroll" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link smoth-scroll" href="#portfolio">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link smoth-scroll" href="#contact">Contact</a></li>
+            </ul>
+
+            <form class="form-inline my-2 my-md-0 ml-lg-4">
+                <a href="#contact" class="btn btn-main btn-rounded smoth-scroll">Contact Me<i
+                        class="fa fa-angle-right ml-2"></i></a>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!-- Header Close -->
+
+
+<!-- Slider Start -->
+<section class="slider" id="slider">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-8 col-12">
+                <div class="banner-content text-center">
+                    <h1 class="cd-headline clip is-full-width mb-4 ">
+                        I am <br>
+                        <span class="cd-words-wrapper text-color">
+	                        <b class="is-visible">Python developer </b>
+	                        <b>Programmer</b>
+	                    </span>
+                    </h1>
+                    <p class="font-weight-normal lead ">Follow me</p>
+                    <ul class="list-inline socials-icon mb-5">
+                         <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCexLoPKjgMBtlgHZJWscU-w"><i class="fab fa-youtube"></i></a></li>
+                        <li class="list-inline-item"><a href="https://telegram.me/kamron_0808"><i class="fab fa-telegram"></i></a></li>
+                        <li class="list-inline-item"><a href="https://dribbble.com/Kamronbek_"><i class="fab fa-dribbble"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/kamronbek_ikromovich/"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="intro section" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 pr-lg-5">
+                <div class="intro-img">
+                    {% for j in about %}
+                    <img src="{{ j.img.url }}" style="height:729px" alt=""
+                         class="img-fluid">
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="intro-content mt-5 mt-lg-0">
+                    <h2 class="text-lg mb-4">Hello !. I am Kamron Tilovov</h2>
+                    {% for i in about %}
+                    <p class="mb-4">{{ i.text }}</p>
+                    {% endfor %}
+                    <ul class="list-unstyled ">
+                        {% for i in categoriya %}
+                        <li><h5><i class="ti-check mr-3"></i>{{ i.name }}</h5></li>
+
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-bottom experience">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="title">
+                    <h2>Specialized Area</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for i in specialized %}
+            <div class="col-lg-6 col-md-6">
+                <div class="skill-bar mb-2 mb-lg-0">
+                    <div class="mb-4 text-right"><h4 class="font-weight-normal">{{ i.categoriya }} </h4></div>
+                    <div class="progress">
+                        <div class="progress-bar" data-percent="{{ i.percentage }}">
+                            <span class="percent-text"><span class="count">{{ i.percentage }}</span>%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="section secondary-bg" id="services">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-title text-center">
+                    <h2 class="mb-4 text-lg">My services</h2>
+                    <p>Omnis est dolores commodi ullam tempora sequi asperiores ipsum autem ex aliquam. Voluptatibus
+                        unde</p>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            {% for i in service %}
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <div class="d-flex align-items-center mb-4">
+                        <h4>{{ i.name }}</h4>
+                    </div>
+                    <p>{{ i.text }}</p>
+                    <a href="#contact" class="read-more">Learn More <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- portfolio -->
+<section class="section portfolio" id="portfolio">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-title text-center">
+                    <h2 class="mb-4 text-lg">Work Portfolio</h2>
+                    <p>Omnis est dolores commodi ullam tempora sequi asperiores ipsum autem ex aliquam. Voluptatibus
+                        unde</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 text-center  mb-5">
+            <div class="btn-group btn-group-toggle ">
+                <label class="btn active ">
+                    <a href="{% url 'index'  %}">All</a>
+                </label>
+                {% for i in portfolio %}
+                <label class="btn active ">
+                    <a href="{% url 'portfolio' i.id %}"><span>{{ i.name }}</span></a>
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row shuffle-wrapper portfolio-gallery">
+            {% for k in portfolio_images %}
+            <div class="col-lg-4 col-md-6 col-12 mb-4 shuffle-item" data-groups="[&quot;{{ k.value }}&quot;]">
+                <div class="portfolio-item mb-4">
+                    <img src="{{ k.img.url }}" alt="" class="img-fluid" style="height: 196px;width: 350px">
+                    <div class="overlay-content">
+                        <h5>{{ k.project_name }}</h5>
+                        <a href="{{ k.img.url }}" class="portfolio-image popup-gallery"><i class="ti-zoom-in"></i></a>
+                        <a href="https://github.com/Ikromovich"><i class="ti-link"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <div class="cta-wrap box-shadow">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-8">
+                    <div class="cta-content">
+                        <span class="text-color">All in one Solution</span>
+                        <h2 class="text-lg">Have any Project on mind?</h2>
+                    </div>
+                </div>
+                <div class="col-lg-3 ">
+                    <div class="text-lg-right mt-5 mt-lg-0">
+                        <a href="#contact" class="btn btn-main btn-rounded smoth-scroll">Contact me<i
+                                class="fa fa-angle-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section" id="contact">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-title text-center">
+                    <h2 class="mb-4 text-lg">Let's Get started</h2>
+                    <p>Omnis est dolores commodi ullam tempora sequi asperiores ipsum autem ex aliquam. Voluptatibus
+                        unde</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <form class="contact__form form-row contact-form" method="POST" action="{% url 'send_email' %}"
+                      id="contactForm">
+                    {% load crispy_forms_filters %}
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="alert alert-success contact__msg" style="display: none" role="alert">
+                                Your message was sent successfully.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Your Name</label>
+                                <input type="text" id="name" name="name" class="form-control"
+                                       placeholder="Enter Your Name">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Your Email</label>
+                                <input type="text" name="sender_email" id="email" class="form-control"
+                                       placeholder="Enter Your Email Address">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>Your Subject</label>
+                                <input type="text" name="subject" id="subject" class="form-control"
+                                       placeholder="Enter Your Subject">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>Your Message</label>
+                                <textarea id="message" name="msg" cols="30" rows="8" class="form-control"
+                                          placeholder="Your Message"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="d-lg-flex justify-content-between mt-4">
+                            <p>* Rest assured.We will not spam at your inbox.</p>
+                            <button id="submit" name="submit" type="submit" class="btn btn-main btn-rounded">Send
+                                Message
+                            </button>
+                            <!--                            <input id="submit" name="submit" type="submit" class="btn btn-main btn-rounded"-->
+                            <!--                                   value="Send Message">-->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="footer ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mr-auto col-md-12">
+                <div class="footer-widget widget mb-5 mb-lg-0">
+                    <h3 class="mb-3 text-white">Kamronbek Ikromovich</h3>
+                    <p>Minimal & Crative Portfolio/<br>2022 © Kamron Ikromovich</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-widget widget mb-5 mb-lg-0">
+                    <h6 class="mb-4">Get In touch</h6>
+                    <div class="footer-contact">
+                        <h5>kamronikromovich@gmail.com</h5>
+                        <h5>+998 88 888 08 08</h5>
+                        <h5>Qarshi shahar </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget widget">
+                    <h6 class="mb-4">Follow Me</h6>
+                    <ul class="list-inline footer-socials-icon mb-0">
+                        <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCexLoPKjgMBtlgHZJWscU-w"><i class="fab fa-youtube"></i></a></li>
+                        <li class="list-inline-item"><a href="https://telegram.me/kamron_0808"><i class="fab fa-telegram"></i></a></li>
+                        <li class="list-inline-item"><a href="https://dribbble.com/Kamronbek_"><i class="fab fa-dribbble"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/kamronbek_ikromovich/"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-btm ">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <!--					<p class="mb-0"><a href="{% static 'https://www.templateshub.net' %}" target="_blank">Templates Hub</a></p>-->
+                </div>
+                <div class="col-lg-4">
+                    <form action="#" class="footer-subscribe mt-5 mt-lg-0">
+                        <input type="text" class="form-control" placeholder="Email Address">
+                        <i class="ti-email"></i>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-top text-right">
+            <a href="#slider" class="top-to-bototm smoth-scroll"><i class="ti-angle-up"></i></a>
+        </div>
+    </div>
+</section>
+
+
+<!--
+Essential Scripts
+=====================================-->
+
+
+<!-- Main jQuery -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap 4.3.1 -->
+<script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- Slick Slider -->
+<script src="{% static 'plugins/slick-carousel/slick/slick.min.js' %}"></script>
+<!-- Progress Bar -->
+<script src="{% static 'plugins/counto/apear.js' %}"></script>
+<script src=" {% static 'plugins/counto/counTo.js' %}"></script>
+<script src="{% static 'plugins/animated-text/animated-text.js' %}"></script>
+
+<script src="{% static 'plugins/counterup/waypoint.js' %}"></script>
+<script src="{% static 'plugins/counterup/jquery.counterup.min.js' %}"></script>
+<!--  Magnific Popup-->
+<script src="{% static 'plugins/magnific-popup/dist/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'plugins/shuffle/shuffle.min.js' %}"></script>
+
+<script src="{% static 'plugins/jquery/ajax-contact.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+
+
+</html>
+   
